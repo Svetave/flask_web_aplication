@@ -1,4 +1,4 @@
-# flask_web_aplication
+# flask_web_application
 Веб-приложение на основе фреймворка Flask для курса Python Разработчик ITMO 2025
 
 ## Description
