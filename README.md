@@ -7,7 +7,7 @@
 ## Installation
 ```bash
 virtualenv -p python3 flask-venv
-source game-venv/bin/activate
+source flask-venv/bin/activate
 pip install -r requirements.txt
 ```
 
