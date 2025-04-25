@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Заявка на дизайн панели {% endblock %}</h1>
+
+<form method="post">
+  <div class="mb-3">
+    <label for="title" class="col-sm-2 col-form-label">Название дизайна</label>
+    <input type="text" name="title"
+           placeholder="Введите название дизайна" class="form-control"
+           value="{{ request.form['title'] }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="organization" class="col-sm-2 col-form-label">Организация</label>
+    <input type="text" name="organization"
+           placeholder="Введите название организации" class="form-control"
+           value="{{ request.form['organization'] }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="analit" class="col-sm-2 col-form-label">Аналит</label>
+    <input type="text" name="analit"
+           placeholder="Введите аналит" class="form-control"
+           value="{{ request.form['analit'] }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="genome" class="col-sm-2 col-form-label">Геном</label>
+    <input type="text" name="genome"
+           placeholder="Введите геном" class="form-control"
+           value="{{ request.form['genome'] }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="samples" class="col-sm-2 col-form-label">Тип образцов</label>
+    <input type="text" name="samples"
+           placeholder="Введите тип образцов" class="form-control"
+           value="{{ request.form['samples'] }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="mode" class="col-sm-2 col-form-label">Режим чтения</label>
+    <input type="text" name="mode"
+           placeholder="Введите режим чтения" class="form-control"
+           value="{{ request.form['mode'] }}">
+  </div>
+
+  <div class="mb-3">
+    <label for="genes" class="col-sm-2 col-form-label">Анализируемые регионы</label>
+    <textarea name="genes" placeholder="Введите анализируемые регионы"
+              class="form-control" rows="3">{{ request.form['genes'] }}</textarea>
+  </div>
+
+  <div>
+    <div class="mb-3">
+    <form action = "/upload-file" method = "POST" 
+          enctype = "multipart/form-data">
+       <input type="file" name="file">
+       <input type="Submit" value="Загрузить">
+    </form>
+    <div style="color:orange">{{ message }}</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="comment" class="col-sm-2 col-form-label">Комментарий</label>
+    <textarea name="comment" placeholder="Введите комментарий"
+              class="form-control" rows="3">{{ request.form['comment'] }}</textarea>
+  </div>
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+{% endblock %}

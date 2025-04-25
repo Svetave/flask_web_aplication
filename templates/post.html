@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+    <p>Организация: {{ post['organization'] }}</p>
+    <p>Аналит: {{ post['analit'] }}</p>
+    <p>Геном: {{ post['genome'] }}</p>
+    <p>Тип образцов: {{ post['samples'] }}</p>
+    <p>Режим чтения: {{ post['mode'] }}</p>
+     <div class="mb-3">
+    <label for="genes" class="col-sm-2 col-form-label">Анализируемые регионы: </label>
+    <textarea name="genes" placeholder="Введите анализируемые регионы"
+              class="form-control" rows="3">{{ request.form['genes'] or post['genes']  }}</textarea>
+    </div>
+    <div class="mb-3">
+    <label for="comment" class="col-sm-2 col-form-label">Комментарий: </label>
+    <textarea name="comment" placeholder="Введите комментарий"
+              class="form-control" rows="3">{{ request.form['comment'] or post['comment']  }}</textarea>
+    </div>
+
+    <span class="badge text-bg-primary">{{ post['created'] }}</span>
+{% endblock %}

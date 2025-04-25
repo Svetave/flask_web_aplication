@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Edit "{{ post['title'] }}" {% endblock %}</h1>
+
+<form method="post">
+  <div class="mb-3">
+    <label for="title" class="col-sm-2 col-form-label">Название дизайна</label>
+    <input type="text" name="title"
+           placeholder="Введите название дизайна" class="form-control"
+           value="{{ request.form['title'] or post['title'] }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="organization" class="col-sm-2 col-form-label">Организация</label>
+    <input type="text" name="organization"
+           placeholder="Введите название организации" class="form-control"
+           value="{{ request.form['organization'] or post['organization']  }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="analit" class="col-sm-2 col-form-label">Аналит</label>
+    <input type="text" name="analit"
+           placeholder="Введите аналит" class="form-control"
+           value="{{ request.form['analit'] or post['analit']  }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="genome" class="col-sm-2 col-form-label">Геном</label>
+    <input type="text" name="genome"
+           placeholder="Введите геном" class="form-control"
+           value="{{ request.form['genome']  or post['genome'] }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="samples" class="col-sm-2 col-form-label">Тип образцов</label>
+    <input type="text" name="samples"
+           placeholder="Введите тип образцов" class="form-control"
+           value="{{ request.form['samples'] or post['samples']  }}">
+  </div>
+
+  <form method="post">
+  <div class="mb-3">
+    <label for="mode" class="col-sm-2 col-form-label">Режим чтения</label>
+    <input type="text" name="mode"
+           placeholder="Введите режим чтения" class="form-control"
+           value="{{ request.form['mode'] or post['mode'] }}">
+  </div>
+
+  <div class="mb-3">
+    <label for="genes" class="col-sm-2 col-form-label">Анализируемые регионы</label>
+    <textarea name="genes" placeholder="Введите анализируемые регионы"
+              class="form-control" rows="3">{{ request.form['genes'] or post['genes'] }}</textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="comment" class="col-sm-2 col-form-label">Комментарий</label>
+    <textarea name="comment" placeholder="Введите комментарий"
+              class="form-control" rows="3">{{ request.form['comment'] or post['comment']  }}</textarea>
+  </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+<hr>
+<form action="{{ url_for('delete', id=post['id']) }}" method="POST">
+  <input type="submit" value="Delete Post"
+         class="btn btn-danger btn-sm"
+         onclick="return confirm('Are you sure you want to delete this post?')">
+</form>
+{% endblock %}
